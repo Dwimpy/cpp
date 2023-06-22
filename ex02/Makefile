@@ -1,17 +1,17 @@
-NAME	:= PhoneBook
+NAME	:= Accounts
 
 CC		:= c++
 RM		:= rm
-FLAGS	:= -std=c++98 -Wall -Werror -Wextra
+FLAGS	:= -std=c++98 #-Wall -Werror -Wextra
 
 INCLUDE := ./include
 SRC_DIR	:= ./src
 OBJ_DIR	:= ./obj
-MAINFILE := main.cpp
+MAINFILE := tests.cpp
 
 HEADERS := -I $(INCLUDE)
 
-SRC 	:= Contact.cpp PhoneBook.cpp
+SRC 	:= Account.cpp 
 
 SRCS	:= $(patsubst %.cpp, $(SRC_DIR)/%.cpp, $(SRC))
 OBJS	:= $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))

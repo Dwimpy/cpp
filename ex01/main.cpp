@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:15:03 by arobu             #+#    #+#             */
-/*   Updated: 2023/04/04 22:59:08 by arobu            ###   ########.fr       */
+/*   Updated: 2023/06/22 13:02:11 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,33 @@
 
 int	main(int argc, char **argv)
 {	
-	PhoneBook new_phonebook;
-	std::string line;
-	
-	Contact new_contact("asd", "ASD", "GGG", "HDG", "ASDG");
+	(void)argc;
+	(void)argv;
+	PhoneBook	new_phonebook;
+	std::string	line;
+	std::string	index;
+
+	std::cout << "Phonebook valid commands:" << std::endl;
+	std::cout << "Commands are case-sensitive" << std::endl;
+	std::cout << "Type ADD to add a contact to the phonebook" << std::endl;
+	std::cout << "Type SEARCH to look for contact in the phonebook" << std::endl;
+	std::cout << "Type EXIT to exit the program" << std::endl;
 	while (1)
 	{
 		getline(std::cin, line);
-		if (line == "ADD")
-			new_phonebook.add_contact();
 		if (std::cin.eof())
-			break ;
+			exit(0);
+		else if (line == "ADD")
+			new_phonebook.add_contact();
+		else if (line == "SEARCH")
+		{
+			if (new_phonebook.search_contact())
+				continue ;
+		}
+		else if (line == "EXIT")
+			std::exit(0);
+		else
+			std::cout << "Invalid command" << std::endl;
 	}
-	// new_phonebook.get_contact(0).print_contact();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:05:34 by arobu             #+#    #+#             */
-/*   Updated: 2023/04/03 23:49:01 by arobu            ###   ########.fr       */
+/*   Updated: 2023/06/21 15:06:39 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ class Contact{
 		Contact();
 		Contact(const Contact &);
 		~Contact();
-		void print_contact(void);
-		std::string	FirstName;
+		std::string		get_first_name(void);
+		void 			print_contact_table(void);
+		void			print_contact_info(void);
+		std::string		truncate(std::string string);
 
 	private:
+		std::string	FirstName;
 		std::string LastName;
 		std::string Nickname;
 		std::string PhoneNumber;
